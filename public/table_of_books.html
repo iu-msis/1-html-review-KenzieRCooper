@@ -1,18 +1,25 @@
 <!doctype html>
 <html>
+
     <head>
-        <meta charset="utf-8">
         <title>Harry Potter: The Series</title>
-        <link rel="stylesheet" href="/css/site.css">
+        <link rel="stylesheet" href="file:///Users/kenziecooper/github-classroom/iu-msis/1-html-review-KenzieRCooper/public/css/site.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
       </head>
 <body>
-    <nav>
-        <a href = "index.html">Homepage</a>
-        <a href="table_of_books.html">Books</a>
-        <a href="user_info.html">User Information</a>
-    </nav>
+  <header>Harry Potter</header>
 
-<H3> Harry Potter Book Series</H3>
+  <nav>
+      <div class="navbar-nav">
+        <a class="nav-link" href='index.html'>Home</a>
+        <a class="nav-link" href="user_info.html">Profile</a> 
+        <a class="nav-link-active" href="table_of_books.html">Books<span class="sr-only">(current)</span></a>
+      </div>
+  </nav>
+
+<H1 id = "HarryPotter"> Harry Potter Book Series</H1>
 
 <table class ="table">
 <thead>
@@ -29,7 +36,6 @@
 <tbody>
 <tr>
   <th scope="row">1</th>
- 
 <td>Harry Potter and the Sorcerer's Stone</td>
 <td> J.K. Rowling</td>
 <td>1997</td>
@@ -108,32 +114,40 @@
 </table>
 
 <form>
-  <label for='author'>Author:</label><br>
-  <input type="text" id="author" name='author'>
+  <label for='series'>Series #:</label><br>
+  <input type="text" id="series" name='series'>
+<br/>
 
   <label for='bname'>Book Title:</label><br>
-  <input type="text" id='bname' name='bname'<br>
+  <input type="text" id='bname' name='bname'>
+  <br/>
 
   <label for='author'>Author:</label><br>
   <input type="text" id="author" name='author'>
+  <br/>
 
-  <label for='author'>Author:</label><br>
-  <input type="text" id="author" name='author'>
+  <label for='year'>Year Published</label><br>
+  <input type="text" id="year" name='year'>
+  <br/>
 
-  <label for='author'>Author:</label><br>
-  <input type="text" id="author" name='author'>
+  <label for='publisher'>Publisher:</label><br>
+  <input type="text" id="publisher" name='publisher'>
+  <br/>
 
-  <label for='author'>Author:</label><br>
-  <input type="text" id="author" name='author'>
+  <label for='page'>Page Count:</label><br>
+  <input type="text" id="page" name='page'>
+  <br/>
 
-  <label for='author'>Author:</label><br>
-  <input type="text" id="author" name='author'>
+  <label for='msrp'>MSRP:</label><br>
+  <input type="text" id="msrp" name='msrp'>
+  <br/>
+  <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
-
 
 </body>
 <footer>
 
 </footer>
+
 </html>

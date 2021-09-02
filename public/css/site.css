@@ -1,45 +1,57 @@
+body {
+  background-color: black!important;
+  font-family: monospace!important;
+  color: burlywood!important;
+  margin: 0;
+  padding: 0;
+}
 
-    body{
-      background-color: black;
-      font-family: monospace;
-      color:white; 
-    }
+.container{
+  background-color: black;
+  font-family: monospace;
+  color: burlywood;
+}
 
+.navbar-nav {
+  background-color: black;
+  font-family: monospace;
+  color: burlywood;
+}
+
+.nav-link-active {
+  background-color: black;
+  font-family: monospace;
+  color: cornsilk;
+}
+
+.nav-link {
+  background-color: black!important;
+  font-family: monospace!important;
+  color: burlywood!important;
+}
+   
+.img-raised-rounded-circle-img-fluid {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+
+}
+.table {
+  background-color: gray;
+  font-family: monospace;
+  color: burlywood;
+}
+.col{
+  background-color: black;
+  font-size: medium;
+  font-family: monospace;
+  color: burlywood;
+}
+
+#HarryPotter{
+  color: burlywood;
+}
     
-    header{
-      font-family: monospace;
-      color: burlywood;
-      font-size: xx-large;
-      border: 2px solid burlywood;
-      padding: 6px;
-    }
-
-    a {
-      font-family: monospace;
-      color: black;
-      font-size: large;
-      border: 2px solid black;
-      padding: 10px;
-    }
-
-    a:hover{
-      color:cornsilk;
-      font-family: monospace;
-    }
-
-    footer{
-      background-color: cornsilk;
-      border: burlywood 3px solid;
-      padding: 6px;
-      color: black;
-      font-family: monospace;
-    }
-
-    nav{
-      border:black 3px solid;
-      padding: 15px;
-      width:100%;
-      height:60px;
-      background-color:burlywood;
-      font-family: monospace;
-    }
