@@ -3,9 +3,13 @@
 
     <head>
         <title>Harry Potter: The Series</title>
-        <link rel="stylesheet" href="file:///Users/kenziecooper/github-classroom/iu-msis/1-html-review-KenzieRCooper/public/css/site.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--CSS-->
+  <link rel="stylesheet" href="file:///Users/kenziecooper/Documents/GitHub/1-html-review-KenzieRCooper/app/public/css/site.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+       <!--bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+ <!--Vue JS: eventually I think I update this to be different??-->
+ 
 
       </head>
 <body>
@@ -21,7 +25,11 @@
 
 <H1 id = "HarryPotter"> Harry Potter Book Series</H1>
 
-<table class ="table">
+
+    <!-- Took the table from the JS file given... -->
+
+
+    <table id="taskTable" class="table">
 <thead>
 <tr>
   <th scope="col">Series#</th>
@@ -113,6 +121,7 @@
 
 </table>
 
+
 <form>
   <label for='series'>Series #:</label><br>
   <input type="text" id="series" name='series'>
@@ -144,10 +153,16 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
+<script src="js/tablesort.min.js"></script>
+
+<script>
+  new Tablesort(document.getElementById('taskTable'));
+</script>
 
 </body>
 <footer>
 
 </footer>
+
 
 </html>
