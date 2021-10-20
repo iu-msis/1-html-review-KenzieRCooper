@@ -96,3 +96,17 @@ th[role=columnheader]:not(.no-sort):hover:after {
 	opacity: 1;
 }
     
+.student{
+  margin: 10px 2px;
+  padding: 2px;
+  border: 1ps solid gray;
+  background-color:burlywood;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.studentName{
+  color: #404040;
+}

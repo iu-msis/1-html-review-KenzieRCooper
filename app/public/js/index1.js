@@ -1,52 +1,37 @@
-const app=Vue.createApp({
+const Book = {
     data() {
-        return{
-            "person":{},
-            "info":[
-                {
-                    "name": "",
-                    "country":"",
-                    "birthday":"",
-                    "age":"",
-                    "email":"",
-                    "phone":"",
-                    "image": ''
-                    
-                },
-            ]
+      return {
+            "books": [],
         }
     },
-
-//formatting the Birthday: Computed 
     computed: {
-        prettyBirthday() {
-            return dayjs(this.person.dob.date)
-            .format('D MMM YYYY')
-        }
-      },
-      
-//formatting the : Methods functionize something and this should be done when things get too complex (more than one vertical screen of code)  
-//need to refresh the data without refreshing the page
-//took everything out of created and put everything into curly brackets in fetch user data methods
-
-      methods:{
-        fetchUserData(){
-            fetch('https://randomuser.me/api/')
-    .then(response => response.json())
-    .then((responseJson) => {
-        console.log(responseJson);   //for debugging
-        this.person =responseJson.results[0];
-    })
-    .catch((err) => {
-        console.error(err);
-    })
-
-        }
-      },
-//created is a function: an event hook that is called automatically when our vue application is created
-created(){
-    this.fetchUserData();
+    //     prettyBirthday() {
+    //       return dayjs(this.person.dob.date)
+    //         .format('D MMM YYYY');
+    //     }
+    },
+    methods: {
+       
+        fetchBookData() {
+            fetch('/api/books/')
+            .then(response => response.json())
+            .then((parsedJson) => {
+                console.log(parsedJson);
+                this.books = parsedJson
+            })
+            .catch( err => {
+                console.error(err)
+            })
+        },
+    
+    },
+    created() {
+        this.fetchBookData();
     }
-})
+  }
 
-// Vue.creteApp(app).mount('#offerApp')
+  
+Vue.createApp(Book).mount('#booksApp');
+
+//how do i incorporate multiple javascripts like this? should I create multiple javascript files?
+

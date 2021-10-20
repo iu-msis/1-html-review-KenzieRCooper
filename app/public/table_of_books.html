@@ -3,13 +3,19 @@
 
     <head>
         <title>Harry Potter: The Series</title>
-        <!--CSS-->
-  <link rel="stylesheet" href="file:///Users/kenziecooper/Documents/GitHub/1-html-review-KenzieRCooper/app/public/css/site.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-       <!--bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
- <!--Vue JS: eventually I think I update this to be different??-->
+
+  <!--Vue.js CDN Link-->
+  <script src="https://unpkg.com/vue@next"></script>    
+
+   <!--bootstrap-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
  
+  <!--CSS-->
+  <link rel="stylesheet" href="css/site.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+
 
       </head>
 <body>
@@ -29,7 +35,7 @@
     <!-- Took the table from the JS file given... -->
 
 
-    <table id="taskTable" class="table">
+    <!-- <table id="taskTable" class="table">
 <thead>
 <tr>
   <th scope="col">Series#</th>
@@ -119,12 +125,87 @@
 
 </tbody>
 
-</table>
+</table> -->
+
+<!--Above is old HTML Table: Begin SQL Table for Homework-->
+
+<div  id="booksApp" class="container">
+  <div class="row align-items-start">
+    <div class="col col-4">
+
+      <table class="table" v-if="books.length">
+        <thead>
+          <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Year Published</th>
+            <th>Publisher</th>
+            <th>Page Count</th>
+            <th>MSRP</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr v-for="book in books">
+              <td>{{ book.authorName }}</td>
+                <td>{{ book.titleName }}</td>
+                <td>{{ book.yearpublished }}</td>
+                <td>{{ book.publisher }}</td>
+                <td>{{ book.pagecount }}</td>
+                <td>{{ book.msrp }}</td>
+                <td></td>
+                <td>
+                  <button type="button" v-on:click="handleEditBooks(books)" class="btn btn-outline-secondary btn-sm">Edit</button>
+                    <button type="button" v-on:click="postDeleteBooks(books)" class="btn btn-outline-secondary btn-sm">Delete</button>
+
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3> {{ selectedBook === null ? "Add " : "Edit " }} Books</h3>
+  <form v-on:submit.prevent="postNewBook">
+    <div class="mb-3">
+      <label for="authorName" class="form-label">Author Name</label>
+      <input type="text" v-model="bookForm.authorName"
+       class="form-control" id="authorName">
+    </div>
+    <div class="mb-3">
+      <label for="bname" class="form-label">Book Title</label>
+      <input type="text" v-model="bookForm.bname" class="form-control" id="bname">
+    </div>
+    <div class="mb-3">
+      <label for="year" class="form-label">Year Published</label>
+      <input type="date" v-model="bookForm.year" class="form-control" id="year">
+    </div>
+    <div class="mb-3">
+      <label for="publisher" class="form-label">Publisher</label>
+      <input type="text" v-model="bookForm.publisher" class="form-control" id="publisher">
+    </div>
+    <div class="mb-3">
+      <label for="pagecount" class="form-label">Page Count</label>
+      <input type="number" v-model="bookForm.pagecount" class="form-control" id="pagecount">
+    </div>
+    <div class="mb-3">
+      <label for="msrp" class="form-label">MSRP</label>
+      <input type="text" v-model="bookForm.msrp" class="form-control" id="msrp">
+    </div>
+    <button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add " : "Edit " }} Books</button>
+    <button type="button" class="btn btn-outline-secondary" 
+       v-if="selectedBook"
+       v-on:click="handleResetEdit">Cancel Edit</button>
+  </form>
 
 
-<form>
+</div>
+
+<!--End SQL Homework Table: Below is the Form that we created in class: it is commented out because it was not working properly-->
+
+<!-- <h3>{{ selectedBook === null ? "Add " : "Edit " }} Books</h3>
+ <form>
   <label for='series'>Series #:</label><br>
-  <input type="text" id="series" name='series'>
+  <input type="number" id="series" name='series'>
 <br/>
 
   <label for='bname'>Book Title:</label><br>
@@ -136,7 +217,7 @@
   <br/>
 
   <label for='year'>Year Published</label><br>
-  <input type="text" id="year" name='year'>
+  <input type="date" id="year" name='year'>
   <br/>
 
   <label for='publisher'>Publisher:</label><br>
@@ -144,7 +225,7 @@
   <br/>
 
   <label for='page'>Page Count:</label><br>
-  <input type="text" id="page" name='page'>
+  <input type="number" id="page" name='page'>
   <br/>
 
   <label for='msrp'>MSRP:</label><br>
@@ -152,12 +233,24 @@
   <br/>
   <button type="submit" class="btn btn-primary">Submit</button>
 
-</form>
-<script src="js/tablesort.min.js"></script>
+</form>  -->
+
+
+<!-- CDN example (unpkg) Content Delivery Network -->
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+<!--The are the anchors to my javascript pages, I need these on every HTML page that employs Java Script-->
+<script src="js/form.js"></script>
+
+<!--Mount-->
+<!-- <script>
+  const mountedApp = app.mount('#booksapp')
+</script>
+
 
 <script>
   new Tablesort(document.getElementById('taskTable'));
-</script>
+</script> -->
 
 </body>
 <footer>
