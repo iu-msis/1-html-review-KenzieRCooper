@@ -3,8 +3,7 @@
 // if (($_SERVER['REQUEST_METHOD'] ?? '') != 'POST') {
 //     header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed");
 //     exit;
-//  }
-//change to books
+// }
 
 try {
     $_POST = json_decode(
@@ -32,23 +31,10 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-    'UPDATE books SET 
-      authorName = ?,
-      titleName = ?,
-      yearpublished = ?,
-      publisher = ?,
-      pagecount = ?,
-      msrp = ?,
-    WHERE id = ?'
-  );
+  'DELETE FROM books WHERE id = ?'
+);
 
 $stmt->execute([
-  $_POST['authorName'],
-  $_POST['bname'],
-  $_POST['year'],
-  $_POST['publisher'],
-  $_POST['pagecount'],
-  $_POST['msrp'],
   $_POST['id']
 ]);
 

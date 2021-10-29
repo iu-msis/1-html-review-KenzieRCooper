@@ -63,7 +63,10 @@
              });
          },
 
-         handleEditBooks(evt) {
+
+
+
+         postEditBooks(evt) {
           this.bookForm.id = this.selectedBook.id;
            
           console.log("Editing!", this.bookForm);
@@ -86,15 +89,16 @@
             });
             
         },
-        postDeleteBooks(o) {  
-          if ( !confirm("Are you sure you want to delete the offer from " + o.authorName + "?") ) {
+        
+        postDeleteBooks(book) {  
+          if ( !confirm("Are you sure you want to delete the offer from " + book.authorName + "?") ) {
               return;
           }
-          console.log("Delete!", o);  
+          console.log("Delete!", book);  
 
           fetch('api/books/delete.php', {
             method:'POST',
-            body: JSON.stringify(o),
+            body: JSON.stringify(book),
             headers: {
               "Content-Type": "application/json; charset=utf-8"
             }
@@ -109,8 +113,9 @@
             this.handleResetEdit();
           });
       },
-      handleEditBooks(books) {
-        this.selectedBook = books;
+
+      handleEditBooks(book) {
+        this.selectedBook = book;
         this.bookForm = Object.assign({}, this.selectedBook);
     },
     handleResetEdit() {
